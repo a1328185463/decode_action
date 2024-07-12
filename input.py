@@ -1,3 +1,11 @@
+'''
+名称: 可乐阅读
+export wxpusher_uid='xxxx'  # WxPusher平台 uid
+export wxpusher_token='xxxx'  # WxPusher平台 token
+export klyd_keys='xxxx'  # ck#ua 多账号一行一个 
+export klyd_url='xxxx'  # 入口url 或 收徒码
+'''
+
 import sys
 vesion = sys.version.split(' ')[0]
 if vesion.split('.')[1] == "10":
