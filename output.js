@@ -1,7 +1,10 @@
+//Sun Aug 25 2024 04:54:03 GMT+0000 (Coordinated Universal Time)
+//Base:https://github.com/echo094/decode-js
+//Modify:https://github.com/smallfawn/decode_action
 //Sun Aug 25 2024 04:35:50 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-NAME = "星芽免费短剧";
+NAME = "\u661F\u82BD\u514D\u8D39\u77ED\u5267";
 VALY = ["xymfdj"];
 CK = "";
 let _0x514890 = process.env.weixinToken,
@@ -28,7 +31,7 @@ class _0xb7dbde {
       "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
     });
     this.dlip = _0x2a8938.split("\n")[0];
-    console.log("账号" + this.num + "：代理IP：" + this.dlip);
+    console.log("\u8D26\u53F7" + this.num + "\uFF1A\u4EE3\u7406IP\uFF1A" + this.dlip);
   }
   async ["user_task_list"]() {
     await $.wait(3000);
@@ -37,7 +40,7 @@ class _0xb7dbde {
   }
   async ["login"]() {
     let _0x16cd21 = await this.task("post", "https://app.whjzjx.cn/v1/account/login", this.headers2, "device=" + this.device_id);
-    _0x16cd21.status == 0 ? (this.login = true, this.authorization = _0x16cd21.data.token, console.log("data：" + this.authorization), await this.login11()) : (this.login = false, console.log("账号" + this.num + "：" + _0x16cd21.msg), await this.wxpusher(_0x16cd21.msg));
+    _0x16cd21.status == 0 ? (this.login = true, this.authorization = _0x16cd21.data.token, console.log("data\uFF1A" + this.authorization), await this.login11()) : (this.login = false, console.log("\u8D26\u53F7" + this.num + "\uFF1A" + _0x16cd21.msg), await this.wxpusher(_0x16cd21.msg));
   }
   async ["login11"]() {
     this.headers = {
@@ -50,8 +53,8 @@ class _0xb7dbde {
     if (_0x4f3e8b.code == "ok") {
       this.login = true;
       this.num = _0x4f3e8b.data.account_id;
-      console.log("账号:" + this.num + "  金额：" + _0x4f3e8b.data.cash_remain);
-    } else this.login = false, console.log("账号" + this.num + "：" + _0x4f3e8b.msg), await this.wxpusher(_0x4f3e8b.msg);
+      console.log("\u8D26\u53F7:" + this.num + "  \u91D1\u989D\uFF1A" + _0x4f3e8b.data.cash_remain);
+    } else this.login = false, console.log("\u8D26\u53F7" + this.num + "\uFF1A" + _0x4f3e8b.msg), await this.wxpusher(_0x4f3e8b.msg);
   }
   async ["wxpusher"](_0x568a06) {
     let _0x206f16 = {
@@ -60,8 +63,8 @@ class _0xb7dbde {
       },
       _0x1c4743 = await this.task("get", "https://wxpusher.zjiecode.com/api/send/message/?appToken=" + _0x514890.split("#")[0] + "&content=" + encodeURI("" + NAME + _0x568a06) + "&uid=" + _0x514890.split("#")[1], _0x206f16);
     if (_0x1c4743.code == 1000) {
-      console.log("微信通知" + _0x1c4743.msg);
-    } else console.log("微信通知失败");
+      console.log("\u5FAE\u4FE1\u901A\u77E5" + _0x1c4743.msg);
+    } else console.log("\u5FAE\u4FE1\u901A\u77E5\u5931\u8D25");
   }
   async ["baoxing"]() {
     for (let _0x1cb07e = 1; _0x1cb07e <= 10; _0x1cb07e++) {
@@ -70,12 +73,12 @@ class _0xb7dbde {
   }
   async ["qiandaoguafen"]() {
     let _0x1b7d7a = await this.task("post", _0x2fbf07 + "/v1/box/open", this.headers, "{\"config_id\":3}");
-    _0x1b7d7a.code == "ok" ? (console.log(this.num + "：宝箱" + _0x1b7d7a.data.coin_val + "金币"), await $.wait($.RT(1000, 3000)), await this.baoxiangguang(_0x1b7d7a.data.coin_val)) : console.log(this.num + "：宝箱" + _0x1b7d7a.msg);
+    _0x1b7d7a.code == "ok" ? (console.log(this.num + "\uFF1A\u5B9D\u7BB1" + _0x1b7d7a.data.coin_val + "\u91D1\u5E01"), await $.wait($.RT(1000, 3000)), await this.baoxiangguang(_0x1b7d7a.data.coin_val)) : console.log(this.num + "\uFF1A\u5B9D\u7BB1" + _0x1b7d7a.msg);
   }
   async ["baoxiangguang"](_0x46b7a) {
     let _0x41ae56 = await this.task("post", _0x2fbf07 + "/v1/box/view_ad", this.headers, "{\"config_id\":3,\"coin_val\":" + _0x46b7a + ",\"ad_num\":1}");
-    if (_0x41ae56.code == "ok") console.log(this.num + "：宝箱广告" + _0x41ae56.data.coin_val + "金币"), await $.wait(30000);else {
-      console.log("账号" + this.num + "：宝箱广告" + _0x41ae56.msg);
+    if (_0x41ae56.code == "ok") console.log(this.num + "\uFF1A\u5B9D\u7BB1\u5E7F\u544A" + _0x41ae56.data.coin_val + "\u91D1\u5E01"), await $.wait(30000);else {
+      console.log("\u8D26\u53F7" + this.num + "\uFF1A\u5B9D\u7BB1\u5E7F\u544A" + _0x41ae56.msg);
     }
   }
   async ["kanjuqing"]() {
@@ -88,21 +91,21 @@ class _0xb7dbde {
         }
       }
       await this.kanju(_0x185df0 + 2);
-    } else console.log("账号" + this.num + "：看剧情况" + _0x355c86.msg);
+    } else console.log("\u8D26\u53F7" + this.num + "\uFF1A\u770B\u5267\u60C5\u51B5" + _0x355c86.msg);
   }
   async ["kanju"](_0x129ba5) {
     let _0x5e6032 = await this.task("post", _0x2fbf07 + "/v1/sign", this.headers, "{\"type\":2,\"make\":" + _0x129ba5 + "}");
-    if (_0x5e6032.code == "ok") console.log(this.num + "：看剧" + _0x5e6032.data.coin_val + "金币");else {
-      console.log("账号" + this.num + "：看剧" + _0x5e6032.msg);
+    if (_0x5e6032.code == "ok") console.log(this.num + "\uFF1A\u770B\u5267" + _0x5e6032.data.coin_val + "\u91D1\u5E01");else {
+      console.log("\u8D26\u53F7" + this.num + "\uFF1A\u770B\u5267" + _0x5e6032.msg);
     }
   }
   async ["chifanbutei"]() {
     let _0x5c7b8d = await this.task("post", _0x2fbf07 + "/v1/task/meal", this.headers, "{\"type\":3,\"claim_status\":2}");
-    _0x5c7b8d.code == "ok" ? console.log(this.num + "：吃饭" + _0x5c7b8d.data.coin_val + "金币") : console.log("账号" + this.num + "：吃饭" + _0x5c7b8d.msg);
+    _0x5c7b8d.code == "ok" ? console.log(this.num + "\uFF1A\u5403\u996D" + _0x5c7b8d.data.coin_val + "\u91D1\u5E01") : console.log("\u8D26\u53F7" + this.num + "\uFF1A\u5403\u996D" + _0x5c7b8d.msg);
   }
   async ["chifanbuteiguangguao"]() {
     let _0x3c6b47 = await this.task("post", _0x2fbf07 + "/v1/task/meal/ad", this.headers, "{\"type\":3,\"claim_status\":2}");
-    _0x3c6b47.code == "ok" ? console.log(this.num + "：吃饭广告" + _0x3c6b47.data.coin_val + "金币") : console.log("账号" + this.num + "：吃饭广告" + _0x3c6b47.msg);
+    _0x3c6b47.code == "ok" ? console.log(this.num + "\uFF1A\u5403\u996D\u5E7F\u544A" + _0x3c6b47.data.coin_val + "\u91D1\u5E01") : console.log("\u8D26\u53F7" + this.num + "\uFF1A\u5403\u996D\u5E7F\u544A" + _0x3c6b47.msg);
   }
   async ["kanshipinid"]() {
     for (let _0x2e021d = 1; _0x2e021d <= 10; _0x2e021d++) {
@@ -111,12 +114,12 @@ class _0xb7dbde {
   }
   async ["kanshipin"](_0x1e4c35) {
     let _0x4d638b = await this.task("post", _0x2fbf07 + "/v1/sign", this.headers, "{\"type\":4,\"mark\":" + _0x1e4c35 + "}");
-    _0x4d638b.code == "ok" ? console.log(this.num + "：看视频" + _0x4d638b.data.species + "金币") : console.log("账号" + this.num + "：看视频" + _0x4d638b.msg);
+    _0x4d638b.code == "ok" ? console.log(this.num + "\uFF1A\u770B\u89C6\u9891" + _0x4d638b.data.species + "\u91D1\u5E01") : console.log("\u8D26\u53F7" + this.num + "\uFF1A\u770B\u89C6\u9891" + _0x4d638b.msg);
   }
   async ["xinxi"]() {
     let _0x405e0c = await this.task("get", _0x2fbf07 + "/v1/sign/info?device_id=" + this.device_id, this.headers);
-    if (_0x405e0c.code == "ok") console.log("账号:" + this.num + "  今日" + _0x405e0c.data.species + "金币，金额：" + _0x405e0c.data.cash_remain);else {
-      console.log("账号" + this.num + "：" + _0x405e0c);
+    if (_0x405e0c.code == "ok") console.log("\u8D26\u53F7:" + this.num + "  \u4ECA\u65E5" + _0x405e0c.data.species + "\u91D1\u5E01\uFF0C\u91D1\u989D\uFF1A" + _0x405e0c.data.cash_remain);else {
+      console.log("\u8D26\u53F7" + this.num + "\uFF1A" + _0x405e0c);
     }
   }
   async ["task"](_0x2861a6, _0x37dd8c, _0x5a0e49, _0x50185e) {
@@ -157,9 +160,9 @@ class _0xb7dbde {
     return new Promise(async _0xda06a3 => {
       _0x3e62c3[_0x2861a6.toLowerCase()](_0x42cae7, async (_0x3e7a9a, _0x9eb20f, _0x1c115e) => {
         try {
-          _0x123507 == 1 && (console.log("==================请求=================="), console.log(JSON.stringify(_0x42cae7)), console.log("==================返回=================="), console.log(_0x1c115e));
+          _0x123507 == 1 && (console.log("==================\u8BF7\u6C42=================="), console.log(JSON.stringify(_0x42cae7)), console.log("==================\u8FD4\u56DE=================="), console.log(_0x1c115e));
         } catch (_0x577526) {} finally {
-          return !_0x3e7a9a ? $.safeGet(_0x1c115e) ? _0x1c115e = JSON.parse(_0x1c115e) : _0x1c115e = _0x1c115e : _0x475b4f == undefined ? (console.log("请检查网络设置"), _0x1c115e = JSON.parse("{\"code\":\"99\"}")) : (await this.hqdl(), _0x1c115e = await this.task(_0x2861a6, _0x37dd8c, _0x5a0e49, _0x50185e)), _0xda06a3(_0x1c115e);
+          return !_0x3e7a9a ? $.safeGet(_0x1c115e) ? _0x1c115e = JSON.parse(_0x1c115e) : _0x1c115e = _0x1c115e : _0x475b4f == undefined ? (console.log("\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8BBE\u7F6E"), _0x1c115e = JSON.parse("{\"code\":\"99\"}")) : (await this.hqdl(), _0x1c115e = await this.task(_0x2861a6, _0x37dd8c, _0x5a0e49, _0x50185e)), _0xda06a3(_0x1c115e);
         }
       });
     });
@@ -170,31 +173,31 @@ $ = _0x5a1661();
   console.log("[" + NAME + "] " + $.timenow(3) + ":" + $.timenow(4) + ":" + $.timenow(5));
   await $.ExamineCookie();
   if (_0x475b4f == undefined) {
-    console.log("当前使用本地网络运行脚本");
-    console.log("\n-------- 用户信息 --------");
+    console.log("\u5F53\u524D\u4F7F\u7528\u672C\u5730\u7F51\u7EDC\u8FD0\u884C\u811A\u672C");
+    console.log("\n-------- \u7528\u6237\u4FE1\u606F --------");
     await $.Multithreading("login");
     let _0x2900ec = $.cookie_list.filter(_0x232c5 => _0x232c5.login == true);
     if (_0x2900ec.length == 0) {
-      console.log("Cookie格式错误 或 账号被禁封");
+      console.log("Cookie\u683C\u5F0F\u9519\u8BEF \u6216 \u8D26\u53F7\u88AB\u7981\u5C01");
       return;
     } else {
-      console.log("\n-------- 任务列表 --------");
+      console.log("\n-------- \u4EFB\u52A1\u5217\u8868 --------");
       await $.Multithreading("user_task_list");
-      console.log("\n-------- 运行结果 --------");
+      console.log("\n-------- \u8FD0\u884C\u7ED3\u679C --------");
     }
     for (let _0x405429 of $.cookie_list) {
       _0x405429.xinxi();
     }
   } else {
-    console.log("当前使用代理网络运行脚本");
+    console.log("\u5F53\u524D\u4F7F\u7528\u4EE3\u7406\u7F51\u7EDC\u8FD0\u884C\u811A\u672C");
     await $.Multithreading("hqdl");
-    console.log("\n-------- 用户信息 --------");
+    console.log("\n-------- \u7528\u6237\u4FE1\u606F --------");
     await $.Multithreading("login");
     let _0x3420cb = $.cookie_list.filter(_0xf4b5f7 => _0xf4b5f7.login == true);
     if (_0x3420cb.length == 0) {
-      console.log("Cookie格式错误 或 账号被禁封");
+      console.log("Cookie\u683C\u5F0F\u9519\u8BEF \u6216 \u8D26\u53F7\u88AB\u7981\u5C01");
       return;
-    } else console.log("\n-------- 任务列表 --------"), await $.Multithreading("user_task_list"), console.log("\n-------- 运行结果 --------");
+    } else console.log("\n-------- \u4EFB\u52A1\u5217\u8868 --------"), await $.Multithreading("user_task_list"), console.log("\n-------- \u8FD0\u884C\u7ED3\u679C --------");
     for (let _0xd4ad8a of $.cookie_list) {
       _0xd4ad8a.xinxi();
     }
@@ -237,9 +240,9 @@ function _0x5a1661() {
         }
         _0x80080d = $.cookie_list.length;
       } else {
-        console.log("\n【" + NAME + "】：未填写变量: " + VALY);
+        console.log("\n\u3010" + NAME + "\u3011\uFF1A\u672A\u586B\u5199\u53D8\u91CF: " + VALY);
       }
-      return console.log("共找到" + _0x80080d + "个账号"), $.cookie_list;
+      return console.log("\u5171\u627E\u5230" + _0x80080d + "\u4E2A\u8D26\u53F7"), $.cookie_list;
     }
     ["task"](_0x501030, _0xe5e338, _0x23a6e4, _0x26da24, _0x46dda4) {
       if (_0x501030 == "delete") _0x501030 = _0x501030.toUpperCase();else {
@@ -260,14 +263,14 @@ function _0x5a1661() {
         !_0x46dda4 && delete _0x43be02.proxy;
         this.request[_0x501030.toLowerCase()](_0x43be02, (_0x42f51a, _0x3c508c, _0x5bf7fb) => {
           try {
-            _0x5bf7fb && _0x123507 == 1 && (console.log("================ 请求 ================"), console.log(_0x43be02), console.log("================ 返回 ================"), $.safeGet(_0x5bf7fb) ? console.log(JSON.parse(_0x5bf7fb)) : console.log(_0x5bf7fb));
+            _0x5bf7fb && _0x123507 == 1 && (console.log("================ \u8BF7\u6C42 ================"), console.log(_0x43be02), console.log("================ \u8FD4\u56DE ================"), $.safeGet(_0x5bf7fb) ? console.log(JSON.parse(_0x5bf7fb)) : console.log(_0x5bf7fb));
           } catch (_0x577b62) {
             console.log(_0x577b62, _0xe5e338 + "\n" + _0x23a6e4);
           } finally {
             let _0x2bd6c4 = "";
             if (!_0x42f51a) {
               if ($.safeGet(_0x5bf7fb)) _0x2bd6c4 = JSON.parse(_0x5bf7fb);else _0x5bf7fb.indexOf("/") != -1 && _0x5bf7fb.indexOf("+") != -1 ? _0x2bd6c4 = $.decrypts(_0x5bf7fb) : _0x2bd6c4 = _0x5bf7fb;
-            } else _0x2bd6c4 = _0xe5e338 + "   API请求失败，请检查网络重试\n" + _0x42f51a;
+            } else _0x2bd6c4 = _0xe5e338 + "   API\u8BF7\u6C42\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u91CD\u8BD5\n" + _0x42f51a;
             return _0x371980(_0x2bd6c4);
           }
         });
@@ -291,7 +294,7 @@ function _0x5a1661() {
         this.request[_0xf56364.toLowerCase()](_0x211884, (_0x1bb8c5, _0x5dc1c2, _0x3fb179) => {
           try {
             if (_0x3fb179) {
-              _0x123507 == 1 && (console.log("================ 请求 ================"), console.log(_0x211884), console.log("================ 返回 ================"), $.safeGet(_0x3fb179) ? console.log(JSON.parse(_0x3fb179)) : console.log(_0x3fb179));
+              _0x123507 == 1 && (console.log("================ \u8BF7\u6C42 ================"), console.log(_0x211884), console.log("================ \u8FD4\u56DE ================"), $.safeGet(_0x3fb179) ? console.log(JSON.parse(_0x3fb179)) : console.log(_0x3fb179));
             }
           } catch (_0x4d512a) {
             console.log(_0x4d512a, _0x370cc3 + "\n" + _0x4e9003);
@@ -305,7 +308,7 @@ function _0x5a1661() {
                   _0x3f4c58 = _0x3fb179;
                 }
               }
-            } else _0x3f4c58 = _0x370cc3 + "   API请求失败，请检查网络重试\n" + _0x1bb8c5;
+            } else _0x3f4c58 = _0x370cc3 + "   API\u8BF7\u6C42\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u91CD\u8BD5\n" + _0x1bb8c5;
             return _0x1212a4(_0x3f4c58);
           }
         });
@@ -418,11 +421,11 @@ function _0x5a1661() {
       return _0x28aa06;
     }
     ["nowtime"]() {
-      return new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000);
+      return new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 480 * 60 * 1000);
     }
     ["timecs"]() {
       let _0x1cc9a1 = $.nowtime();
-      return JSON.stringify(_0x1cc9a1).indexOf(" ") >= 0 && (_0x1cc9a1 = _0x1cc9a1.replace(" ", "T")), new Date(_0x1cc9a1).getTime() - 8 * 60 * 60 * 1000;
+      return JSON.stringify(_0x1cc9a1).indexOf(" ") >= 0 && (_0x1cc9a1 = _0x1cc9a1.replace(" ", "T")), new Date(_0x1cc9a1).getTime() - 480 * 60 * 1000;
     }
     ["rtjson"](_0x102f0d, _0x4168e4, _0x5d82b1, _0x38ff8e) {
       return _0x38ff8e == 0 ? JSON.stringify(_0x102f0d.split(_0x4168e4).reduce((_0x401b9e, _0x32ba63) => {
@@ -508,5 +511,5 @@ async function _0xb534d9() {
       "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 13; M2012K11AC Build/TKQ1.220829.002)"
     }),
     _0x4dcbab = _0x209994[NAME];
-  console.log("脚本版本：" + _0x327f58 + "   最新版本：" + _0x4dcbab);
+  console.log("\u811A\u672C\u7248\u672C\uFF1A" + _0x327f58 + "   \u6700\u65B0\u7248\u672C\uFF1A" + _0x4dcbab);
 }
